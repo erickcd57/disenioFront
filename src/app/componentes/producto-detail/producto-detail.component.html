@@ -1,0 +1,13 @@
+<div *ngIf="!producto">
+    <p>Cargando producto...</p>
+</div>
+<div class="row" *ngIf="producto">
+    <div class="col-lg-8">
+        <h3>Nombre: {{producto.nombre}}</h3>
+        <p class="card-text">Código: {{producto.codigo}}</p>
+        <p class="card-text">Descripción: {{producto.descripcion}}</p>
+        <p class="card-text">Stock: {{producto.stock}}</p>
+        <p class="card-text">Precio Unitario: {{producto.precioUnidad}} soles</p>
+        <p class="card-text">Costo Unitario: {{producto.costoUnidad}} soles</p>
+    </div>
+</div>

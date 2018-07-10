@@ -1,0 +1,46 @@
+<h3>{{titulo}}</h3>
+<hr/>
+
+<form #formProducto="ngForm" (ngSubmit)="agregarProducto()" class="col-lg-6" id="form-producto">
+
+    <label>
+		Código
+		<span *ngIf="!codigo.valid && codigo.touched" class="label label-danger">El código es obligatorio</span>
+  </label>
+    <div>
+        <input type="text" class="form-control" name="codigo" #codigo="ngModel" [(ngModel)]="producto.codigo" required />
+    </div>
+
+
+    <label>
+		Nombre
+		<span *ngIf="!nombre.valid && nombre.touched" class="label label-danger">El nombre es obligatorio</span>
+	</label>
+    <input type="text" #nombre="ngModel" name="nombre" [(ngModel)]="producto.nombre" class="form-control" required />
+
+    <label>
+		Descripción
+		<span *ngIf="!descripcion.valid && descripcion.touched" class="label label-danger">La descripción es obligatorio</span>
+	</label>
+    <textarea #descripcion="ngModel" name="descripcion" [(ngModel)]="producto.descripcion" class="form-control" required></textarea>
+
+    <label>
+		Precio Unidad
+		<span *ngIf="!precioUnidad.valid && precioUnidad.touched" class="label label-danger">El precio unitario no es correcto</span>
+	</label>
+    <input type="text" #precioUnidad="ngModel" name="precioUnidad" [(ngModel)]="producto.precioUnidad" class="form-control" required pattern="[0-9]+" />
+
+    <label>
+      Stock
+      <span *ngIf="!stock.valid && stock.touched" class="label label-danger">El stock no es correcto</span>
+    </label>
+    <input type="text" #stock="ngModel" name="stock" [(ngModel)]="producto.stock" class="form-control" required pattern="[0-9]+" />
+
+    <label>
+        Costo Unitario
+        <span *ngIf="!costoUnidad.valid && costoUnidad.touched" class="label label-danger">El costo unitario no es correcto</span>
+      </label>
+    <input type="text" #costoUnidad="ngModel" name="costoUnidad" [(ngModel)]="producto.costoUnidad" class="form-control" required pattern="[0-9]+" />
+    <br/>
+    <input type="submit" value="{{titulo}}" [disabled]="!formProducto.form.valid" class="btn btn-success" />
+</form>
